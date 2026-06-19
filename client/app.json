@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "Meera Hotel",
+    "slug": "meera-hotel",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.jpeg",
+    "scheme": "meera-hotel",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/splash.jpeg",
+      "resizeMode": "contain",
+      "backgroundColor": "#2E7D32"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.meerahotel.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow Meera Hotel to access camera for profile photo",
+        "NSPhotoLibraryUsageDescription": "Allow Meera Hotel to access photos for profile picture",
+        "NSLocationWhenInUseUsageDescription": "Allow Meera Hotel to detect your location for delivery address",
+        "NSMicrophoneUsageDescription": "Allow Meera Hotel to access microphone"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.jpeg",
+        "backgroundColor": "#2E7D32"
+      },
+      "package": "com.meerahotel.app",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.jpeg",
+          "color": "#2E7D32"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "apiUrl": "http://localhost:3000/api",
+      "appName": "Meera Hotel",
+      "router": {
+        "origin": false
+      }
+    }
+  }
+}

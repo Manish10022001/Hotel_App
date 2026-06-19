@@ -1,0 +1,12 @@
+export const MAX_CART_ITEMS = 20;
+export const OTP_EXPIRY_MINUTES = 10;
+export const MAX_OTP_ATTEMPTS = 3;
+export const MAX_ADDRESSES_PER_USER = 5;
+export const DELIVERY_CHARGE = 30;
+export const FREE_DELIVERY_THRESHOLD = 200;
+export const PACKAGING_CHARGE = 10;
+export const GST_PERCENTAGE = 5;
+export const OTP_LENGTH = 6;
+export const OTP_TIMER_SECONDS = 60;
+export const SEARCH_DEBOUNCE_MS = 400;
+export const BANNER_AUTO_SCROLL_MS = 3000;
