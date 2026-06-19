@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
-import { MaterialIcons } from '@expo/vector-icons';
-
+import { MaterialIcons } from "@expo/vector-icons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { COLORS } from "src/constants/colors";
 
 type MaterialIconName = React.ComponentProps<typeof MaterialIcons>["name"];
@@ -19,6 +19,7 @@ const TAB_CONFIG: TabConfig[] = [
 ];
 
 export default function TabsLayout() {
+  const insets = useSafeAreaInsets();
   return (
     <Tabs
       screenOptions={{
@@ -26,8 +27,8 @@ export default function TabsLayout() {
         tabBarActiveTintColor: COLORS.primary,
         tabBarInactiveTintColor: COLORS.lightGray,
         tabBarStyle: {
-          height: 60,
-          paddingBottom: 8,
+          height: 60 + insets.bottom,
+          paddingBottom: insets.bottom + 4,
           paddingTop: 4,
           borderTopWidth: 1,
           borderTopColor: COLORS.border,
@@ -47,6 +48,10 @@ export default function TabsLayout() {
           }}
         />
       ))}
+      {/* These screens exist as routes but are hidden from the tab bar */}
+      <Tabs.Screen name="cart" options={{ href: null }} />
+      <Tabs.Screen name="search" options={{ href: null }} />
+      <Tabs.Screen name="item-detail" options={{ href: null }} />
     </Tabs>
   );
 }
