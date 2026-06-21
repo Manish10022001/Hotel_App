@@ -52,6 +52,7 @@ export default function TabsLayout() {
       <Tabs.Screen name="cart" options={{ href: null }} />
       <Tabs.Screen name="search" options={{ href: null }} />
       <Tabs.Screen name="item-detail" options={{ href: null }} />
+      <Tabs.Screen name="checkout" options={{ href: null }} />
     </Tabs>
   );
 }
