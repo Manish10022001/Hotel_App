@@ -1,13 +1,13 @@
 import { Order } from "../types/order";
 import type { PlaceOrderPayload } from "../types/checkout";
-import { MOCK_ORDERS, MOCK_USER } from "./mock-data";
+import { MOCK_ORDERS } from "./mock-data";
 import {
   DELIVERY_CHARGE,
   FREE_DELIVERY_THRESHOLD,
   PACKAGING_CHARGE,
   GST_PERCENTAGE,
 } from "@constants/app";
-
+const sessionOrders: Order[] = [...MOCK_ORDERS];
 function simulateDelay(ms = 1200): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -76,17 +76,18 @@ export const orderService = {
       estimatedDeliveryTime: payload.orderType === "delivery" ? 35 : 20,
       createdAt: new Date().toISOString(),
     };
-
+    //save to session store so getOrderById can find it
+    sessionOrders.push(order);
     return order;
   },
 
   getOrders: async (): Promise<Order[]> => {
     await simulateDelay(800);
-    return MOCK_ORDERS;
+    return [...sessionOrders].reverse();
   },
 
   getOrderById: async (orderId: string): Promise<Order | null> => {
     await simulateDelay(600);
-    return MOCK_ORDERS.find((o) => o.id === orderId) ?? null;
+    return sessionOrders.find((o) => o.id === orderId) ?? null;
   },
 };

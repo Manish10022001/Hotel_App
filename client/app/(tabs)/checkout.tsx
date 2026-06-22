@@ -316,14 +316,7 @@ export default function CheckoutScreen() {
       </ScrollView>
 
       {/* Fixed bottom bar */}
-      <View
-        style={[
-          styles.bottomBar,
-          {
-            paddingBottom: insets.bottom > 0 ? insets.bottom + 2 : 10,
-          },
-        ]}
-      >
+      <View style={styles.bottomBar}>
         <View style={styles.bottomTotal}>
           <Text style={styles.bottomTotalLabel}>Total</Text>
           <Text style={styles.bottomTotalValue}>
@@ -609,13 +602,14 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: COLORS.white,
-    borderTopWidth: 1,
-    borderTopColor: COLORS.border,
+    // borderTopWidth: 1,
+    // borderTopColor: COLORS.border,
     flexDirection: "row",
     alignItems: "center",
     gap: 12,
     paddingHorizontal: 16,
     paddingTop: 10,
+    paddingBottom: 10,
     elevation: 8,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: -2 },
