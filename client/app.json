@@ -4,11 +4,11 @@
     "slug": "meera-hotel",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.jpeg",
+    "icon": "./assets/icon.png",
     "scheme": "meera-hotel",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/images/splash.jpeg",
+      "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#2E7D32"
     },
@@ -25,7 +25,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.jpeg",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#2E7D32"
       },
       "package": "com.meerahotel.app",
@@ -45,7 +45,7 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/images/icon.jpeg",
+          "icon": "./assets/icon.png",
           "color": "#2E7D32"
         }
       ]
@@ -58,6 +58,9 @@
       "appName": "Meera Hotel",
       "router": {
         "origin": false
+      },
+      "eas": {
+        "projectId": "b23cc1ed-727d-4d51-ab11-dc89e01ccd68"
       }
     }
   }
