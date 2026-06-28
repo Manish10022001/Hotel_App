@@ -8,6 +8,7 @@ import * as SplashScreen from "expo-splash-screen";
 import Toast from "react-native-toast-message";
 import { COLORS } from "src/constants/colors";
 import { View } from "react-native";
+import OfflineBanner from "@components/offline-banner";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -50,6 +51,7 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <AuthProvider>
           <CartProvider>
+            <OfflineBanner />
             <AuthGate />
             <Toast />
           </CartProvider>

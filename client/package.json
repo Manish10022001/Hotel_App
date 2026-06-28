@@ -4,6 +4,7 @@
   "main": "expo-router/entry",
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
+    "@react-native-community/netinfo": "11.4.1",
     "@react-navigation/elements": "^2.9.25",
     "axios": "^1.18.0",
     "expo": "~54.0.0",
