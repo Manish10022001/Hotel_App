@@ -9,6 +9,7 @@ import Toast from "react-native-toast-message";
 import { COLORS } from "src/constants/colors";
 import { View } from "react-native";
 import OfflineBanner from "@components/offline-banner";
+import { ErrorBoundary } from "@components/error-boundary";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -51,9 +52,11 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <AuthProvider>
           <CartProvider>
-            <OfflineBanner />
-            <AuthGate />
-            <Toast />
+            <ErrorBoundary>
+              <OfflineBanner />
+              <AuthGate />
+              <Toast />
+            </ErrorBoundary>
           </CartProvider>
         </AuthProvider>
       </SafeAreaProvider>
