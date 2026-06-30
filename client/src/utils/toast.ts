@@ -1,4 +1,5 @@
 import Toast from "react-native-toast-message";
+import { haptics } from "./haptics";
 
 export const showToast = {
   success: (message: string, title = "Success") => {
@@ -11,6 +12,7 @@ export const showToast = {
     });
   },
   error: (message: string, title = "Error") => {
+    haptics.error();
     Toast.show({
       type: "error",
       text1: title,

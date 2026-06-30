@@ -10,6 +10,7 @@ import { COLORS } from "src/constants/colors";
 import { View } from "react-native";
 import OfflineBanner from "@components/offline-banner";
 import { ErrorBoundary } from "@components/error-boundary";
+import LoadingScreen from "@components/loading-screen";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -41,7 +42,7 @@ function AuthGate() {
   }, [isLoggedIn, isLoading, appReady, segments]);
 
   if (!appReady) {
-    return <View style={{ flex: 1, backgroundColor: COLORS.primary }} />;
+    return <LoadingScreen />;
   }
   return <Slot />;
 }

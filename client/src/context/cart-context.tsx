@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer, ReactNode } from "react";
 import type { FoodItem } from "../types/food-item";
 import { MAX_CART_ITEMS } from "../constants/app";
+import { haptics } from '@utils/haptics';
 
 interface CartItem {
   item: FoodItem;
@@ -73,8 +74,10 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, { items: [] });
 
-  const addToCart = (item: FoodItem) =>
+  const addToCart = (item: FoodItem) => {
+    haptics.light();
     dispatch({ type: "ADD_ITEM", payload: item });
+  };
   const removeFromCart = (itemId: string) =>
     dispatch({ type: "REMOVE_ITEM", payload: itemId });
   const updateQuantity = (itemId: string, quantity: number) =>
