@@ -20,6 +20,7 @@ import {
   PACKAGING_CHARGE,
   GST_PERCENTAGE,
 } from "@constants/app";
+import EmptyState from "@components/empty-state";
 
 export default function CartScreen() {
   const router = useRouter();
@@ -54,19 +55,13 @@ export default function CartScreen() {
         </View>
 
         {/* Empty state */}
-        <View style={styles.emptyContainer}>
-          <Text style={styles.emptyEmoji}>🛒</Text>
-          <Text style={styles.emptyTitle}>Your cart is empty</Text>
-          <Text style={styles.emptySubtitle}>
-            Browse our menu and add your favourite dishes
-          </Text>
-          <TouchableOpacity
-            style={styles.browseButton}
-            onPress={() => router.push("/(tabs)/menu")}
-          >
-            <Text style={styles.browseButtonText}>Browse Menu</Text>
-          </TouchableOpacity>
-        </View>
+        <EmptyState
+          emoji="🛒"
+          title="Your cart is empty"
+          subtitle="Browse our menu and add your favourite dishes"
+          actionLabel="Browse Menu"
+          onAction={() => router.push("/(tabs)/menu" as never)}
+        />
       </View>
     );
   }
